@@ -1,0 +1,56 @@
+/* Add styles for horizontal scrolling */
+.overflow-x-auto {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .space-x-6 > :not([hidden]) ~ :not([hidden]) {
+    margin-left: 1.5rem; /* Adjust space between items */
+  }
+  
+  .flex-shrink-0 {
+    flex-shrink: 0;
+  }
+
+
+  
+.product-marquee-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+  }
+  
+  .product-marquee {
+    display: flex;
+    flex-wrap: nowrap;
+    animation: marquee 15s linear infinite;
+  }
+  
+  .product-marquee > div {
+    flex-shrink: 0;
+    margin-right: 1rem; /* Adjust space between items */
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+
+
+.top1{
+    margin-top: 50px;
+    
+}
+  
+
+

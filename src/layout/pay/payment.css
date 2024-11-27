@@ -1,0 +1,90 @@
+.payment{
+    display: flex;
+    background-color: rgb(182, 255, 182);
+    height: 650px;
+    max-width: 6500px;
+    margin-left: 50px;
+}
+
+.paymentfrom{
+    background-color: white;
+    position: absolute;
+    right: 0;
+    height: 650px;
+    width: 620px;
+    text-align: center;
+    margin-left: -50px;
+}
+
+.paymentMethods{
+    max-width: 200px;
+    margin-left: 200px;
+    margin-top: 30px;
+}
+
+.paymentMethods div {
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 25px;
+  display: flex;
+  margin-top: 30px;
+}
+
+.paymentMethods img{
+    
+    width: 20px;
+}
+
+.cen{
+    margin-left: 10px;
+}
+
+.cen img{
+    margin-left: 40px;
+    margin-top: 10px;
+    padding: 20px;
+    height: 100px;
+}
+
+.manu{
+    margin-left: 70px;
+    margin-top: -80px;
+}
+
+.amount1 {
+    margin-left: -150px;
+  }
+
+.amount2{
+    margin-left: 80px;
+    margin-top: -23px;
+}
+
+
+.button{
+    margin-top: 50px;
+}
+
+
+
+/* เนื้อหาหลัก */
+.main-content {
+    width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* รายการสินค้า */
+  .product-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+  }
+  
+  /* ปุ่มชำระเงิน */
+  .checkout-button {
+    display: block;
+    width: 200px;
+    background-color: #000;
+    margin: 10px auto;
+  }

@@ -1,0 +1,27 @@
+.swal2-confirm-custom {
+    background-color: #3085d6 !important;
+    color: white !important;
+    border-radius: 0.375rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.swal2-confirm-custom:hover {
+    background-color: #2563eb !important; /* Slightly darker blue for hover */
+}
+
+.swal2-cancel-custom {
+    background-color: #d33 !important;
+    color: white !important;
+    border-radius: 0.375rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.swal2-cancel-custom:hover {
+    background-color: #b91c1c !important; /* Slightly darker red for hover */
+}

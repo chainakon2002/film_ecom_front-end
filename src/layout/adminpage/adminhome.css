@@ -1,0 +1,12 @@
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in-page {
+  animation: fadeInPage 2s ease-in forwards;
+}

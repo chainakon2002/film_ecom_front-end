@@ -1,0 +1,234 @@
+/* General Container Styles */
+.product-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 822px;
+  margin: auto;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.product-info img {
+  max-width: 500px;
+  margin-right: 20px;
+}
+
+.product-info h2 {
+  font-size: 24px;
+  margin-top: 0;
+}
+
+.product-info p {
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.product-info .price {
+  font-size: 18px;
+  font-weight: bold;
+  color: red;
+}
+
+/* Product Detail Styles */
+.name {
+  font-size: 40px;
+  margin-bottom: 1rem;
+  margin-top: -100px;
+  font-weight: bold;
+}
+
+.product-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 150px;
+  margin-left: 30px;
+}
+
+.product-image-container {
+  flex: 0;
+  display: flex;
+  justify-content: center;
+  margin: 40px;
+}
+
+.product-image {
+  max-width: 65%;
+  width: 800px;
+  min-width: 600px;
+  max-height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.product-image:hover {
+  transform: scale(1.1); /* Zoom effect on hover */
+}
+
+.product-details-container {
+  flex: 2;
+  padding: 1rem;
+  min-width: 400px;
+}
+
+.product-name {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  margin-top: -120px;
+}
+
+.product-details {
+  margin-top: 1rem;
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+.product-details p {
+  margin: 0.5rem 0;
+  max-width: 500px;
+}
+
+.product-details button {
+  margin-top: 1rem;
+}
+
+.price {
+  font-size: 26px;
+  font-weight: bold;
+  color: rgb(221, 56, 56);
+}
+
+.stock {
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(36, 95, 204);
+}
+
+/* Button Styles */
+.addToCart {
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-size: 22px;
+  font-weight: bold;
+  background-color: #0073b7;
+  color: white;
+  cursor: pointer;
+}
+
+.buttoncart {
+  margin-top: 90px;
+}
+
+.btn-hover {
+  width: 200px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin: 60px;
+  height: 55px;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  transition: all 0.4s ease-in-out;
+}
+
+.btn-hover:hover {
+  background-position: 100% 0;
+}
+
+.btn-hover:focus {
+  outline: none;
+}
+
+.btn-hover.color-9 {
+  background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+
+.button2 {
+  min-width: 200px;
+  min-height: 50px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(90deg, rgba(129, 230, 217, 1) 0%, rgba(79, 209, 197, 1) 100%);
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgba(79, 209, 197, .64);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+}
+
+.button2::before {
+  content: '';
+  border-radius: 1000px;
+  min-width: calc(200px + 12px);
+  min-height: calc(50px + 12px);
+  border: 6px solid #00FFCB;
+  box-shadow: 0 0 60px rgba(0, 255, 203, .64);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all .3s ease-in-out;
+}
+
+.button2:hover, .button2:focus {
+  color: #313133;
+  transform: translateY(-6px);
+}
+
+.button2:hover::before, .button2:focus::before {
+  opacity: 1;
+}
+
+.button2::after {
+  content: '';
+  width: 30px; height: 30px;
+  border-radius: 100%;
+  border: 6px solid #00FFCB;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1.5s infinite;
+}
+
+.button2:hover::after, .button2:focus::after {
+  animation: none;
+  display: none;
+}
+
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50px); /* Increase the vertical distance */
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-150px); /* Adjust to move further up */
+    opacity: 0;
+  }
+}
+
+.product-image.animate-float {
+  animation: floatUp 0.5s ease-out; /* Shorter duration for faster animation */
+}
