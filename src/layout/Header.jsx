@@ -69,7 +69,7 @@ export default function Header() {
   return (
     <div className={`navbar bg-base-100 fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'h-16' : 'h-20'} ${scrolled ? 'bg-white' : 'bg-base-100'}`}>
       <div className="flex-1 flex items-center">
-        <img src="/src/assets/DISNEY copy.png" alt="" className={`transition-transform duration-300 ${scrolled ? 'h-16' : 'h-20'} w-auto mx-5`} />
+        <img src="/assets/DISNEY copy.png" alt="" className={`transition-transform duration-300 ${scrolled ? 'h-16' : 'h-20'} w-auto mx-5`} />
         <a className="btn btn-ghost text-xl" onClick={hdlPro}>CS.SHOP | {user?.id ? user.username : ''}</a>
       </div>
       <div className="flex-none">

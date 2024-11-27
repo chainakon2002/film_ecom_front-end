@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 export default function Promote() {
   const images = [
-    "/src/assets/Banner.png",
-    "/src/assets/Banner4.jpg",
-    "/src/assets/Banner5.png", // Add more image paths as needed
+    "/assets/Banner.png", // Correct path
+    "/assets/banner4.png", // Correct path
+    "/assets/Banner5.png"  // Correct path
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
