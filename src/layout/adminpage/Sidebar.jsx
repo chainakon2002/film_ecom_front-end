@@ -22,7 +22,7 @@ const Sidebar = () => {
               className="h-[80px] w-[150px]"
             />
             <a className="btn btn-ghost text-xl" sty le={{ marginLeft: '-8px' }}>
-              CS.SHOP | {user?.id ? user.username : ''}
+              {user?.id ? user.username : ''}
             </a>
           </div>
         </h5>
