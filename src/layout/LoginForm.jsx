@@ -81,10 +81,10 @@ export default function LoginForm() {
       ) : error ? (
         <p>{error}</p>
       ) : (
-        <div className="p-4 top1">
+ <div className="p-4 top1">
   <h1 className="text-2xl font-bold mb-4">รายการสินค้า</h1>
-  <div className="product-marquee-wrapper overflow-auto">
-    <div className="product-marquee flex flex-wrap gap-4 min-w-[300px]">
+  <div className="product-marquee-wrapper overflow-x-auto sm:overflow-hidden">
+    <div className="product-marquee flex gap-4 min-w-max flex-nowrap sm:flex-wrap sm:justify-center">
       {products.concat(products).map((product) => (
         <div
           key={product.id}
@@ -108,6 +108,7 @@ export default function LoginForm() {
     </div>
   </div>
 </div>
+
 
         
       )}
