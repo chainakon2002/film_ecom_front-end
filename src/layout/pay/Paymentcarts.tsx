@@ -412,7 +412,7 @@ function Paymentcarts() {
             <h2 className="text-2xl font-semibold text-gray-800 mb-4 text-center">อัพโหลดสลิปการโอนเงิน</h2>
             <div className="flex justify-between items-start mb-4">
                
-                <img src="/src/assets/pay.jpg" alt="Example Slip" className="w-[350px] h-auto border border-gray-200 rounded-lg shadow-sm mr-4" />
+                <img src="/assets/pay.jpg" alt="Example Slip" className="w-[350px] h-auto border border-gray-200 rounded-lg shadow-sm mr-4" />
                
                 <input
                     type="file"
