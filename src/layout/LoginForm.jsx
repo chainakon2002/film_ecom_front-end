@@ -82,35 +82,33 @@ export default function LoginForm() {
         <p>{error}</p>
       ) : (
         <div className="p-4 top1">
-          <h1 className="text-2xl font-bold mb-4">รายการสินค้า</h1>
-          <div className="product-marquee-wrapper">
-            <div className="product-marquee">
-              {products.concat(products).map((product) => (
-                <div
-                  key={product.id}
-                  className="border p-4 rounded-[20px] shadow-md cursor-pointer flex-shrink-0"
-                  onClick={handleProductClick}
-                >
-                  <img
-                    src={product.file}
-                    alt={product.ItemName}
-                    className="w-full h-40 object-cover mb-2 rounded"
-                  />
-                  <h2 className="text-lg font-semibold  text-center">{product.ItemName}</h2>
-                          <p className="font-semibold text-center text-md mb-4">
-            ราคา: {product.price}</p>
-                  
-                  <p className={`text-sm mt-2 ${product.stock > 0 ? 'text-green-500' : 'text-red-500'}`}>
-                    สต็อก: {product.stock > 0 ? `${product.stock} ชิ้น` : 'สินค้าหมด'}
-                  </p>
-                </div>
-                
-              ))}
-              
-            </div>
-          </div>
-          
+  <h1 className="text-2xl font-bold mb-4">รายการสินค้า</h1>
+  <div className="product-marquee-wrapper overflow-auto">
+    <div className="product-marquee flex flex-wrap gap-4 min-w-[300px]">
+      {products.concat(products).map((product) => (
+        <div
+          key={product.id}
+          className="border p-4 rounded-[20px] shadow-md cursor-pointer flex-shrink-0 w-[200px] sm:w-[220px] md:w-[250px]"
+          onClick={handleProductClick}
+        >
+          <img
+            src={product.file}
+            alt={product.ItemName}
+            className="w-full h-40 object-cover mb-2 rounded"
+          />
+          <h2 className="text-lg font-semibold text-center">{product.ItemName}</h2>
+          <p className="font-semibold text-center text-md mb-4">
+            ราคา: {product.price}
+          </p>
+          <p className={`text-sm mt-2 ${product.stock > 0 ? 'text-green-500' : 'text-red-500'}`}>
+            สต็อก: {product.stock > 0 ? `${product.stock} ชิ้น` : 'สินค้าหมด'}
+          </p>
         </div>
+      ))}
+    </div>
+  </div>
+</div>
+
         
       )}
 
