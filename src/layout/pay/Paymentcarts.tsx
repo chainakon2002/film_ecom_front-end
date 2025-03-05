@@ -264,7 +264,7 @@ function Paymentcarts() {
     >
       <img
         className="w-14 object-contain rounded-xl"
-        src="/src/assets/cod.jpg"
+        src="/assets/cod.jpg"
       />
       <div className="ml-5">
         <span className="mt-2 font-semibold">จ่ายปลายทาง</span>
@@ -292,7 +292,7 @@ function Paymentcarts() {
     >
       <img
         className="w-16 object-contain"
-        src="/src/assets/icon-thaiqr.png"
+        src="/assets/icon-thaiqr.png"
       />
       <div className="ml-5">
         <span className="mt-2 font-semibold">โอนจ่าย</span>

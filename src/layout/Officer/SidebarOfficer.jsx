@@ -17,7 +17,7 @@ const Sidebar = () => {
         <h5 className="block antialiased tracking-normal font-sans text-xl font-semibold leading-snug text-gray-900">
           <div className="flex items-center ml-0">
             <img
-              src="/src/assets/DISNEY copy.png"
+              src="/assets/DISNEY copy.png"
               alt=""
               className="h-[100px] w-[109px] "
             />

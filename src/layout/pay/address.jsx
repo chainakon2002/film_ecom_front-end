@@ -186,7 +186,7 @@ const UserProfile = ({ id }) => {
  
 
   return (
-    <div className="p-6 max-w-4xl mx-auto bg-white shadow-md rounded-lg mt-16">
+    <div className="p-6 max-w-4xl mx-auto bg-white shadow-md rounded-lg mt-20">
       {user && (
     <div className="mb-8 border-b border-gray-200 pb-6">
       <h1 className="text-3xl font-bold text-gray-800 mb-4">ข้อมูลผู้ใช้</h1>
@@ -254,7 +254,7 @@ const UserProfile = ({ id }) => {
       </button>
 {/* New Address Modal */}
 {isModalOpen && (
-  <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+  <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 mt-20">
     <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full max-h-[90vh] overflow-y-auto">
       <h2 className="text-2xl font-semibold mb-4">เพิ่มที่อยู่</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
