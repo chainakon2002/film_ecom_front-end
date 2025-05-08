@@ -26,7 +26,7 @@ function Paymentcarts() {
     useEffect(() => {
         const fetchAddresses = async () => {
             try {
-                const response = await axios.get('https://ecomapi2-production.up.railway.app/auth/useraddress', {
+                const response = await axios.get('https://e-comapi-production.up.railway.app/auth/useraddress', {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setAddresses(response.data);
@@ -62,7 +62,7 @@ function Paymentcarts() {
             const shippingCost = getShippingCost();
             const totalWithShipping = pr + shippingCost;
             
-            const rs = await axios.post('https://ecomapi2-production.up.railway.app/order/order', {
+            const rs = await axios.post('https://e-comapi-production.up.railway.app/order/order', {
                 total_all: tl,
                 price_all: totalWithShipping,  // รวมราคากับค่าจัดส่ง
                 status: 'รอดำเนินการ',
@@ -83,7 +83,7 @@ function Paymentcarts() {
         try {
             await Promise.all(
                 carts.map(async (m) => {
-                    await axios.post('https://ecomapi2-production.up.railway.app/order/ordercart', {
+                    await axios.post('https://e-comapi-production.up.railway.app/order/ordercart', {
                         price: m.price,
                         total: m.total,
                         userId: m.UserId,
@@ -104,7 +104,7 @@ function Paymentcarts() {
         try {
             await Promise.all(
                 carts.map(async (m) => {
-                    await axios.delete(`https://ecomapi2-production.up.railway.app/cart/carts/${m.id}`, {
+                    await axios.delete(`https://e-comapi-production.up.railway.app/cart/carts/${m.id}`, {
                         headers: { Authorization: `Bearer ${token}` },
                     });
                 })
@@ -129,7 +129,7 @@ function Paymentcarts() {
                 paymentData.slip = slipImage;
             }
 
-            await axios.post('https://ecomapi2-production.up.railway.app/payment/payments', paymentData);
+            await axios.post('https://e-comapi-production.up.railway.app/payment/payments', paymentData);
             Swal.fire({
                 title: 'สั่งซื้อสำเร็จ!',
                 text: 'สินค้าของคุณได้ถูกสั่งซื้อแล้ว.',
@@ -151,7 +151,7 @@ function Paymentcarts() {
             await Promise.all(
                 carts.map(async (m) => {
                     const stocks = m.product.stock - m.total;
-                    await axios.put(`https://ecomapi2-production.up.railway.app/auth/products/${m.product.id}`, {
+                    await axios.put(`https://e-comapi-production.up.railway.app/auth/products/${m.product.id}`, {
                         stock: stocks
                     });
                 })

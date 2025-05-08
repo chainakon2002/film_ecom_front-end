@@ -18,7 +18,7 @@ const ManageProducts = () => {
       }
 
       try {
-        const response = await axios.get('https://ecomapi2-production.up.railway.app/auth/getuserdetails', {
+        const response = await axios.get('https://e-comapi-production.up.railway.app/auth/getuserdetails', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUsers(response.data);
@@ -43,7 +43,7 @@ const ManageProducts = () => {
     if (!selectedUser) return;
 
     try {
-      await axios.patch(`https://ecomapi2-production.up.railway.app/auth/updateuser/${selectedUser.id}`, selectedUser, {
+      await axios.patch(`https://e-comapi-production.up.railway.app/auth/updateuser/${selectedUser.id}`, selectedUser, {
         headers: { Authorization: `Bearer ${token}` }
       });
       // Optionally, refetch users to update the list

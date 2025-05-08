@@ -24,7 +24,7 @@ const PaymentForm = () => {
     const fetchProduct = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`https://ecomapi2-production.up.railway.app/auth/getproduct/${id}`, {
+        const response = await axios.get(`https://e-comapi-production.up.railway.app/auth/getproduct/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setProduct(response.data);
@@ -41,12 +41,12 @@ const PaymentForm = () => {
     const fetchUser = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`https://ecomapi2-production.up.railway.app/auth/user`, {
+        const response = await axios.get(`https://e-comapi-production.up.railway.app/auth/user`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUser(response.data);
 
-        const addressResponse = await axios.get(`https://ecomapi2-production.up.railway.app/auth/useraddress`, {
+        const addressResponse = await axios.get(`https://e-comapi-production.up.railway.app/auth/useraddress`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setAddresses(addressResponse.data);
@@ -68,7 +68,7 @@ const PaymentForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://ecomapi2-production.up.railway.app/auth/payment', {
+      const response = await axios.post('https://e-comapi-production.up.railway.app/auth/payment', {
         productsId: id,
         amount: formData.amount,
         userId: formData.userId,

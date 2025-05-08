@@ -12,11 +12,11 @@ const OrdersPage = () => {
     const [bestSellingProduct, setBestSellingProduct] = useState(null);
     const token = localStorage.getItem('token');
 
-    
+
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const response = await axios.get('https://ecomapi2-production.up.railway.app/auth/getorderadmin', {
+                const response = await axios.get('https://e-comapi-production.up.railway.app/auth/getorderadmin', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },

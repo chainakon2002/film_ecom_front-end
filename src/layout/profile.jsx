@@ -18,7 +18,7 @@ const UserProfile = () => {
       }
 
       try {
-        const response = await axios.get('https://ecomapi2-production.up.railway.app/auth/getuserme', {
+        const response = await axios.get('https://e-comapi-production.up.railway.app/auth/getuserme', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUser(response.data);
@@ -51,7 +51,7 @@ const UserProfile = () => {
     if (!token || !editedUser) return;
 
     try {
-      await axios.put('https://ecomapi2-production.up.railway.app/auth/updateprofile', editedUser, {
+      await axios.put('https://e-comapi-production.up.railway.app/auth/updateprofile', editedUser, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setUser(editedUser);

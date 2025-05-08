@@ -24,7 +24,7 @@ const OrdersPage = () => {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const response = await axios.get('https://ecomapi2-production.up.railway.app/auth/getorderadmin', {
+                const response = await axios.get('https://e-comapi-production.up.railway.app/auth/getorderadmin', {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 // Sorting orders by date in descending order
@@ -66,7 +66,7 @@ const OrdersPage = () => {
         setLoadingAccept(orderId); 
         try {
             const response = await axios.put(
-                `https://ecomapi2-production.up.railway.app/auth/updateorderstatus`,
+                `https://e-comapi-production.up.railway.app/auth/updateorderstatus`,
                 { orderId, status: newStatus },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -97,7 +97,7 @@ const OrdersPage = () => {
             setLoadingShipping(true); // Set loading state
             try {
                 const response = await axios.put(
-                    `https://ecomapi2-production.up.railway.app/auth/updateshipping`,
+                    `https://e-comapi-production.up.railway.app/auth/updateshipping`,
                     { 
                         orderId: editedOrder.orderId, 
                         shippingCompany: editedOrder.shippingCompany, 
@@ -137,7 +137,7 @@ const OrdersPage = () => {
         try {
           const token = localStorage.getItem("token");
           await axios.put(
-            'https://ecomapi2-production.up.railway.app/auth/cancel',
+            'https://e-comapi-production.up.railway.app/auth/cancel',
             { 
               orderId: orderToCancel.orderId, 
               status: 'ยกเลิกโดยทางร้าน', 

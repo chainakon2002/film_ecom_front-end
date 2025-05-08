@@ -14,7 +14,7 @@ export default function AdminHome() {
     const fetchMenuItems = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('https://ecomapi2-production.up.railway.app/auth/getproduct', {
+        const response = await axios.get('https://e-comapi-production.up.railway.app/auth/getproduct', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setMenuItems(response.data);
@@ -39,7 +39,7 @@ export default function AdminHome() {
         confirmButtonText: "Yes, delete it!"
       }).then(async (result) => {
         if (result.isConfirmed) {
-          await axios.delete(`https://ecomapi2-production.up.railway.app/auth/delete/${id}`, {
+          await axios.delete(`https://e-comapi-production.up.railway.app/auth/delete/${id}`, {
             headers: { Authorization: `Bearer ${token}` }
           });
           setMenuItems(menuItems.filter(item => item.id !== id));
@@ -93,7 +93,7 @@ export default function AdminHome() {
       }
 
       const token = localStorage.getItem('token');
-      await axios.put('https://ecomapi2-production.up.railway.app/auth/updateproduct', {
+      await axios.put('https://e-comapi-production.up.railway.app/auth/updateproduct', {
         ...editProduct,
         productId: editProduct.id
       }, {

@@ -52,7 +52,7 @@ export default function Header() {
     const fetchCartCount = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get('https://ecomapi2-production.up.railway.app/cart/carts/', {
+        const response = await axios.get('https://e-comapi-production.up.railway.app/cart/carts/', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setCartCount(response.data.length);

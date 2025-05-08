@@ -31,12 +31,12 @@ const UserProfile = ({ id }) => {
     const fetchUser = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`https://ecomapi2-production.up.railway.app/auth/user`, {
+        const response = await axios.get(`https://e-comapi-production.up.railway.app/auth/user`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUser(response.data);
 
-        const addressResponse = await axios.get(`https://ecomapi2-production.up.railway.app/auth/useraddress`, {
+        const addressResponse = await axios.get(`https://e-comapi-production.up.railway.app/auth/useraddress`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setAddresses(addressResponse.data);
@@ -127,7 +127,7 @@ const UserProfile = ({ id }) => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.post(`https://ecomapi2-production.up.railway.app/auth/addUserAddress`, {
+      const response = await axios.post(`https://e-comapi-production.up.railway.app/auth/addUserAddress`, {
         ...newAddress,
         zipcode
       }, {
@@ -162,7 +162,7 @@ const UserProfile = ({ id }) => {
     try {
         const token = localStorage.getItem('token');
         console.log('Sending data:', { ...editAddress, zipcode }); // ตรวจสอบข้อมูลที่ส่ง
-        const response = await axios.put(`https://ecomapi2-production.up.railway.app/auth/updateaddress/${editAddress.id}`, {
+        const response = await axios.put(`https://e-comapi-production.up.railway.app/auth/updateaddress/${editAddress.id}`, {
             ...editAddress,
             zipcode,
         }, {

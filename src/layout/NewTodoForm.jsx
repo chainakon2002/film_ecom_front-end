@@ -17,7 +17,7 @@ export default function NewTodoForm() {
       // setInput(prv => ({...prv, dueDate: new Date(prv.dueDate) }))
       const output = { ...input, dueDate: new Date(input.dueDate) }
       const token = localStorage.getItem('token')
-      const rs = await axios.post('https://ecomapi2-production.up.railway.app/todos', output, {
+      const rs = await axios.post('https://e-comapi-production.up.railway.app/todos', output, {
         headers : { Authorization : `Bearer ${token}`}
       })
       alert('Create new OK')

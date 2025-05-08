@@ -14,12 +14,12 @@ export default function ProductDetail() {
     const fetchProduct = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`https://ecomapi2-production.up.railway.app/auth/getproduct/${id}`, {
+        const response = await axios.get(`https://e-comapi-production.up.railway.app/auth/getproduct/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setProduct(response.data);
 
-        const cartResponse = await axios.get('https://ecomapi2-production.up.railway.app/cart/carts/', {
+        const cartResponse = await axios.get('https://e-comapi-production.up.railway.app/cart/carts/', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setCart(cartResponse.data);
@@ -40,14 +40,14 @@ export default function ProductDetail() {
       if (existingCartItem) {
         const updatedTotal = existingCartItem.total + 1;
         const updatedPrice = existingCartItem.price + product.price;
-        await axios.put(`https://ecomapi2-production.up.railway.app/cart/carts/${existingCartItem.id}/`, {
+        await axios.put(`https://e-comapi-production.up.railway.app/cart/carts/${existingCartItem.id}/`, {
           total: updatedTotal,
           price: updatedPrice
         }, {
           headers: { Authorization: `Bearer ${token}` }
         });
       } else {
-        await axios.post('https://ecomapi2-production.up.railway.app/cart/carts', {
+        await axios.post('https://e-comapi-production.up.railway.app/cart/carts', {
           total: 1,
           price: product.price,
           UserId: userId,

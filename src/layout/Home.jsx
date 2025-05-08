@@ -18,10 +18,10 @@ export default function LoginForm() {
     try {
       e.preventDefault()
       // validation
-      const rs = await axios.post('https://ecomapi2-production.up.railway.app/auth/login', input)
+      const rs = await axios.post('https://e-comapi-production.up.railway.app/auth/login', input)
       console.log(rs.data.token)
       localStorage.setItem('token', rs.data.token)
-      const rs1 = await axios.get('https://ecomapi2-production.up.railway.app/auth/me', {
+      const rs1 = await axios.get('https://e-comapi-production.up.railway.app/auth/me', {
         headers : { Authorization : `Bearer ${rs.data.token}` }
       })
       console.log(rs1.data)

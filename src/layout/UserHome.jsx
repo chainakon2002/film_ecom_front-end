@@ -14,12 +14,12 @@ export default function UserHome() {
     const fetchProduct = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('https://ecomapi2-production.up.railway.app/auth/getproduct', {
+        const response = await axios.get('https://e-comapi-production.up.railway.app/auth/getproduct', {
           headers: { Authorization: `Bearer ${token}` } 
         });
         setProduct(response.data);
 
-        const rs = await axios.get('https://ecomapi2-production.up.railway.app/cart/carts/', {
+        const rs = await axios.get('https://e-comapi-production.up.railway.app/cart/carts/', {
           headers: { Authorization: `Bearer ${token}`}
         });
         setCart(rs.data);
@@ -40,7 +40,7 @@ export default function UserHome() {
   const cartShow = async () => {
     try {
       const token = localStorage.getItem('token');
-      const rscarts = await axios.get('https://ecomapi2-production.up.railway.app/cart/carts/', {
+      const rscarts = await axios.get('https://e-comapi-production.up.railway.app/cart/carts/', {
         headers: { Authorization: `Bearer ${token}`}
       });
       setCart(rscarts.data);
@@ -56,12 +56,12 @@ export default function UserHome() {
       if (cartItimechix) {
         const totalAll = cartItimechix.total + 1;
         const nextprice = cartItimechix.price + item.price;
-        await axios.put(`https://ecomapi2-production.up.railway.app/cart/carts/${cartItimechix.id}/`, {
+        await axios.put(`https://e-comapi-production.up.railway.app/cart/carts/${cartItimechix.id}/`, {
           total: totalAll,
           price: nextprice
         });
       } else {
-        await axios.post('https://ecomapi2-production.up.railway.app/cart/carts', {
+        await axios.post('https://e-comapi-production.up.railway.app/cart/carts', {
           total: 1,
           price: item.price,
           UserId: userid,

@@ -29,7 +29,7 @@ export default function RegisterForm() {
       if (input.password !== input.confirmPassword) {
         return alert('Please check confirm password');
       }
-      const rs = await axios.post('https://ecomapi2-production.up.railway.app/auth/register', input);
+      const rs = await axios.post('https://e-comapi-production.up.railway.app/auth/register', input);
       console.log(rs);
       if (rs.status === 200) {
         Swal.fire({

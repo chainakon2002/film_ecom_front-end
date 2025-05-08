@@ -12,7 +12,7 @@ function Cart() {
     const fetchData = async () => {
       try {
         const token = localStorage.getItem("token");
-        const rs = await axios.get('https://ecomapi2-production.up.railway.app/cart/carts/', {
+        const rs = await axios.get('https://e-comapi-production.up.railway.app/cart/carts/', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setCart(rs.data);
@@ -37,7 +37,7 @@ function Cart() {
   const deleteCart = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`https://ecomapi2-production.up.railway.app/cart/carts/${id}`, {
+      await axios.delete(`https://e-comapi-production.up.railway.app/cart/carts/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCart(cart.filter((item) => item.id !== id));
@@ -60,7 +60,7 @@ function Cart() {
         newAllPrice = currentItem.all_price;
       }
 
-      await axios.put(`https://ecomapi2-production.up.railway.app/cart/carts/${id}`, {
+      await axios.put(`https://e-comapi-production.up.railway.app/cart/carts/${id}`, {
         total: data,
         price: newAllPrice,
       });

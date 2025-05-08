@@ -21,7 +21,7 @@ export default function LoginForm() {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('https://ecomapi2-production.up.railway.app/auth/usergetproduct');
+        const response = await axios.get('https://e-comapi-production.up.railway.app/auth/usergetproduct');
         setProducts(response.data);
       } catch (err) {
         setError('เกิดข้อผิดพลาดในการดึงข้อมูลสินค้า');
@@ -41,9 +41,9 @@ export default function LoginForm() {
     try {
       e.preventDefault();
       // Perform login
-      const rs = await axios.post('https://ecomapi2-production.up.railway.app/auth/login', input);
+      const rs = await axios.post('https://e-comapi-production.up.railway.app/auth/login', input);
       localStorage.setItem('token', rs.data.token);
-      const rs1 = await axios.get('https://ecomapi2-production.up.railway.app/auth/me', {
+      const rs1 = await axios.get('https://e-comapi-production.up.railway.app/auth/me', {
         headers: { Authorization: `Bearer ${rs.data.token}` }
       });
       localStorage.setItem('userId', rs1.data.id);

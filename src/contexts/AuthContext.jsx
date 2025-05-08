@@ -14,7 +14,7 @@ function AuthContextProvider(props) {
         setLoading(true)
         let token = localStorage.getItem('token')
         if(!token) { return }
-        const rs = await axios.get('https://ecomapi2-production.up.railway.app/auth/me', {
+        const rs = await axios.get('https://e-comapi-production.up.railway.app/auth/me', {
           headers : { Authorization : `Bearer ${token}` }
         })
         setUser(rs.data)
