@@ -12,6 +12,7 @@ const OrdersPage = () => {
     const [bestSellingProduct, setBestSellingProduct] = useState(null);
     const token = localStorage.getItem('token');
 
+    
     useEffect(() => {
         const fetchOrders = async () => {
             try {
