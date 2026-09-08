@@ -52,7 +52,7 @@ export default function Header() {
     const fetchCartCount = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get('https://e-comapi-production.up.railway.app/cart/carts/', {
+        const response = await axios.get('https://ecom-api2-df4u.onrender.com/cart/carts/', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setCartCount(response.data.length);
@@ -67,78 +67,135 @@ export default function Header() {
   }, [user?.id]);
 
   return (
-    <div className={`navbar bg-base-100 fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'h-16' : 'h-20'} ${scrolled ? 'bg-white' : 'bg-base-100'}`}>
-      <div className="flex-1 flex items-center">
-        <img src="/assets/DISNEY copy.png" alt="" className={`transition-transform duration-300 ${scrolled ? 'h-16' : 'h-20'} w-auto mx-5`} />
-        <a className="btn btn-ghost text-xl" onClick={hdlPro}>CS.SHOP | {user?.id ? user.name : ''}</a>
-      </div>
-      
-      {/* ปุ่มเปิดเมนูมือถือ */}
-      <div className="md:hidden flex items-center">
-        <button onClick={() => setMenuOpen(!menuOpen)} className="text-2xl p-2 focus:outline-none">
-          {menuOpen ? <FaTimes /> : <FaBars />}
-        </button>
-      </div>
+    <header className={`sticky top-0 w-full z-50 transition-all duration-300 ${
+      scrolled 
+        ? 'bg-white/85 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] border-b border-black/[0.06]' 
+        : 'bg-white/70 backdrop-blur-lg border-b border-black/[0.04]'
+    }`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        {/* Brand / Logo */}
+        <div className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-2.5 group">
+            <img 
+              src="/assets/DISNEY copy.png" 
+              alt="Logo" 
+              className="h-9 w-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-105" 
+            />
+            <span className="font-semibold text-lg tracking-tight text-[#1d1d1f] flex items-center gap-1.5">
+              CS.SHOP
+            </span>
+          </Link>
 
-      {/* เมนูหลัก (ซ่อนในมือถือ, แสดงบนจอใหญ่) */}
-      <div className="hidden md:flex">
-        <ul className="menu menu-horizontal px-1">
-          {finalNav.map(el => (
-            <li key={el.to} className="mx-2 flex items-center">
+          {user?.id && (
+            <button 
+              onClick={hdlPro}
+              className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 bg-black/[0.04] hover:bg-black/[0.08] text-[#1d1d1f] text-xs font-medium rounded-full transition-all duration-200"
+              title="ดูโปรไฟล์"
+            >
+              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+              {user.name}
+            </button>
+          )}
+        </div>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-1">
+          {finalNav.map((el) => {
+            if (!el.text && !el.icon) return null;
+            return (
               <Link
+                key={el.to}
                 to={el.to}
-                className="text-[16px] font-semibold text-black hover:bg-gray-600 hover:text-white px-4 py-2 rounded-md transition-colors duration-300 flex items-center"
+                className="flex items-center gap-2 px-3.5 py-1.5 text-sm font-medium text-[#1d1d1f]/80 hover:text-[#1d1d1f] hover:bg-black/[0.05] rounded-full transition-all duration-200 relative"
               >
-                <span className="mr-2">{el.icon}</span>
-                {!scrolled && el.text}
+                {el.icon && <span className="text-base text-[#1d1d1f]/70">{el.icon}</span>}
+                <span>{el.text}</span>
                 {el.to === '/cart' && cartCount > 0 && (
-                  <span className="ml-[1px] bg-red-500 text-white rounded-full px-1 text-xs">{cartCount}</span>
+                  <span className="bg-[#0071e3] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full min-w-[18px] text-center leading-none">
+                    {cartCount}
+                  </span>
                 )}
               </Link>
-            </li>
-          ))}
+            );
+          })}
+
           {user?.id && (
-            <li>
-              <Link to="#" className="text-[16px] font-semibold hover:bg-red-400 transition-colors" onClick={hdlLogout}>ออกจากระบบ</Link>
-            </li>
+            <button
+              onClick={hdlLogout}
+              className="ml-2 px-3.5 py-1.5 text-sm font-medium text-[#86868b] hover:text-[#ff3b30] hover:bg-red-50/60 rounded-full transition-all duration-200"
+            >
+              ออกจากระบบ
+            </button>
           )}
-        </ul>
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden flex items-center">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="p-2 text-[#1d1d1f] hover:bg-black/[0.05] rounded-full transition-colors focus:outline-none"
+            aria-label="Toggle Menu"
+          >
+            {menuOpen ? <FaTimes className="text-xl" /> : <FaBars className="text-xl" />}
+          </button>
+        </div>
       </div>
 
-      {/* เมนูสำหรับมือถือ (slide-in) */}
+      {/* Mobile Menu Drawer */}
       {menuOpen && (
-        <div className="md:hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 flex justify-end">
-          <div className="bg-white w-3/4 h-full shadow-lg flex flex-col items-start p-5">
-            <button onClick={() => setMenuOpen(false)} className="self-end text-2xl p-2">
-              <FaTimes />
-            </button>
-            <ul className="w-full mt-5">
-              {finalNav.map(el => (
-                <li key={el.to} className="mb-3 w-full">
+        <div 
+          className="md:hidden fixed inset-0 top-16 bg-black/20 backdrop-blur-sm z-50 flex justify-end"
+          onClick={() => setMenuOpen(false)}
+        >
+          <div 
+            className="bg-white/95 backdrop-blur-2xl w-64 h-[calc(100vh-4rem)] p-6 shadow-2xl border-l border-black/[0.06] flex flex-col justify-between"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex flex-col gap-2">
+              {user?.id && (
+                <div 
+                  onClick={() => { hdlPro(); setMenuOpen(false); }}
+                  className="p-3 mb-3 bg-[#f5f5f7] rounded-xl flex items-center gap-2 cursor-pointer hover:bg-black/[0.06] transition-colors"
+                >
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                  <div className="text-sm font-semibold text-[#1d1d1f]">{user.name}</div>
+                </div>
+              )}
+
+              {finalNav.map((el) => {
+                if (!el.text && !el.icon) return null;
+                return (
                   <Link
+                    key={el.to}
                     to={el.to}
-                    className="text-lg font-semibold text-black hover:bg-gray-600 hover:text-white px-4 py-2 rounded-md transition-colors duration-300 flex items-center w-full"
-                    onClick={() => setMenuOpen(false)} // ปิดเมนูเมื่อกด
+                    onClick={() => setMenuOpen(false)}
+                    className="flex items-center justify-between px-4 py-2.5 text-sm font-medium text-[#1d1d1f] hover:bg-black/[0.05] rounded-xl transition-colors"
                   >
-                    <span className="mr-2">{el.icon}</span>
-                    {el.text}
+                    <div className="flex items-center gap-3">
+                      {el.icon && <span className="text-base text-[#86868b]">{el.icon}</span>}
+                      <span>{el.text}</span>
+                    </div>
                     {el.to === '/cart' && cartCount > 0 && (
-                      <span className="ml-[1px] bg-red-500 text-white rounded-full px-1 text-xs">{cartCount}</span>
+                      <span className="bg-[#0071e3] text-white text-xs font-bold px-2 py-0.5 rounded-full">
+                        {cartCount}
+                      </span>
                     )}
                   </Link>
-                </li>
-              ))}
-              {user?.id && (
-                <li>
-                  <Link to="#" className="text-lg font-semibold text-red-500 hover:bg-red-400 transition-colors w-full block px-4 py-2 rounded-md" onClick={hdlLogout}>
-                    ออกจากระบบ
-                  </Link>
-                </li>
-              )}
-            </ul>
+                );
+              })}
+            </div>
+
+            {user?.id && (
+              <button
+                onClick={() => { hdlLogout(); setMenuOpen(false); }}
+                className="w-full text-center py-2.5 text-sm font-medium text-[#ff3b30] bg-red-50 hover:bg-red-100 rounded-xl transition-colors"
+              >
+                ออกจากระบบ
+              </button>
+            )}
           </div>
         </div>
       )}
-    </div>
+    </header>
   );
 }

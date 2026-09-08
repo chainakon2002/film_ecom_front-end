@@ -1,34 +1,34 @@
 import axios from "axios";
-import {useState} from "react";
+import { useState } from "react";
 
 export default function NewTodoForm() {
   const [input, setInput] = useState({
-    title : '',
-    dueDate : new Date()
+    title: '',
+    dueDate: new Date()
   })
 
   const hdlChange = e => {
-    setInput( prv => ( {...prv, [e.target.name] : e.target.value} ))
+    setInput(prv => ({ ...prv, [e.target.name]: e.target.value }))
   }
 
   const hdlSubmit = async e => {
-    try{
+    try {
       e.preventDefault()
       // setInput(prv => ({...prv, dueDate: new Date(prv.dueDate) }))
       const output = { ...input, dueDate: new Date(input.dueDate) }
       const token = localStorage.getItem('token')
-      const rs = await axios.post('https://e-comapi-production.up.railway.app/todos', output, {
-        headers : { Authorization : `Bearer ${token}`}
+      const rs = await axios.post('https://ecom-api2-df4u.onrender.com/todos', output, {
+        headers: { Authorization: `Bearer ${token}` }
       })
       alert('Create new OK')
-    }catch(err) {
+    } catch (err) {
       alert(err.message)
     }
   }
 
   return (
     <form className="flex flex-col min-w-[600px] border rounded w-5/6 mx-auto p-4 gap-6"
-        onSubmit={hdlSubmit}
+      onSubmit={hdlSubmit}
     >
       <label className="form-control w-full ">
         <div className="label">

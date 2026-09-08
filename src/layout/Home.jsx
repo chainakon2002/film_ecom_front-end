@@ -1,34 +1,34 @@
 import axios from 'axios'
-import {useState} from "react";
+import { useState } from "react";
 import useAuth from '../hooks/useAuth'
 import './css/login.css'
 
 export default function LoginForm() {
   const { setUser } = useAuth()
   const [input, setInput] = useState({
-    username : '', 
-    password : ''
+    username: '',
+    password: ''
   })
 
   const hdlChange = e => {
-    setInput( prv => ( { ...prv, [e.target.name] : e.target.value } ) )
+    setInput(prv => ({ ...prv, [e.target.name]: e.target.value }))
   }
 
   const hdlSubmit = async e => {
     try {
       e.preventDefault()
       // validation
-      const rs = await axios.post('https://e-comapi-production.up.railway.app/auth/login', input)
+      const rs = await axios.post('https://ecom-api2-df4u.onrender.com/auth/login', input)
       console.log(rs.data.token)
       localStorage.setItem('token', rs.data.token)
-      const rs1 = await axios.get('https://e-comapi-production.up.railway.app/auth/me', {
-        headers : { Authorization : `Bearer ${rs.data.token}` }
+      const rs1 = await axios.get('https://ecom-api2-df4u.onrender.com/auth/me', {
+        headers: { Authorization: `Bearer ${rs.data.token}` }
       })
       console.log(rs1.data)
       setUser(rs1.data)
-      
-    }catch(err) {
-      console.log( err.message)
+
+    } catch (err) {
+      console.log(err.message)
     }
   }
 
@@ -38,13 +38,13 @@ export default function LoginForm() {
       <div className="flex-none mr-40">
         <img src="/src/assets/loginform.png" className="max-w-[600px] h-auto" />
       </div>
-  
+
       {/* แบบฟอร์มทางขวา */}
       <form className="flex flex-col justify-center items-center outline-none  border-20 w-[30rem] h-[30rem] rounded-[25px] shadow-md mt-20 ml-10 transition duration-500 ease-in-out transform" onSubmit={hdlSubmit}>
-      <p className="font-semibold text-[40px] text-[#5473E3] text-center mt-1 mb-12">เข้าสู่ระบบ</p>
+        <p className="font-semibold text-[40px] text-[#5473E3] text-center mt-1 mb-12">เข้าสู่ระบบ</p>
 
 
-  
+
         <label className="form-control w-full max-w-xs">
           <input
             placeholder="Username"
@@ -55,7 +55,7 @@ export default function LoginForm() {
             onChange={hdlChange}
           />
         </label>
-  
+
         <label className="form-control w-full max-w-xs">
           <input
             type="password"
@@ -66,7 +66,7 @@ export default function LoginForm() {
             onChange={hdlChange}
           />
         </label>
-  
+
         <div className="flex gap-5 mt-8">
           <button type="submit" className="rounded-full bg-[#3D5FD9] text-[#F5F7FF] w-[15rem] p-3 hover:bg-[#2347C5]">
             Login
@@ -76,7 +76,7 @@ export default function LoginForm() {
       </form>
     </div>
   );
-  
-  
-  
+
+
+
 }

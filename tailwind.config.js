@@ -8,29 +8,30 @@ export default {
   ],
   theme: {
     fontFamily: {
-      sans: ['Krub', 'sans-serif'],
+      sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"SF Pro Display"', 'Inter', 'Prompt', 'sans-serif'],
     },
     extend: {
       screens: {
         'tablet': '640px',
-        // => @media (min-width: 640px) { ... }
-  
         'laptop': '1024px',
-        // => @media (min-width: 1024px) { ... }
-  
         'desktop': '1280px',
-        // => @media (min-width: 1280px) { ... }
       },
-      colors:{
+      colors: {
+        apple: {
+          bg: '#f5f5f7',
+          card: '#ffffff',
+          dark: '#1d1d1f',
+          gray: '#86868b',
+          lightgray: '#f5f5f7',
+          blue: '#0071e3',
+          blueHover: '#0077ed',
+          border: 'rgba(0, 0, 0, 0.08)',
+        },
         brand: {
           300: '#996DFF',
           500: '#8257e6',
         }
       },
-      borderRadius: {
-        md: '4px'
-      }
-    
     },
   },
   plugins: [require("daisyui")],

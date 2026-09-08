@@ -75,9 +75,9 @@ const adminRouter = createBrowserRouter([
   {
     path: '/',
     element: <>
-      <div className="flex">
+      <div className="min-h-screen bg-[#f5f5f7] flex">
         <Sidebar />
-        <div className="flex-1 ml-80 p-4">
+        <div className="flex-1 ml-72 p-6 sm:p-10 min-h-screen bg-[#f5f5f7]">
           <Outlet />
         </div>
       </div>
@@ -99,9 +99,9 @@ const officerRouter = createBrowserRouter([
   {
     path: '/',
     element: <>
- <div className="flex">
+      <div className="min-h-screen bg-[#f5f5f7] flex">
         <Sidebar2 />
-        <div className="flex-1 ml-[380px] p-4">
+        <div className="flex-1 ml-72 p-6 sm:p-10 min-h-screen bg-[#f5f5f7]">
           <Outlet />
         </div>
       </div>

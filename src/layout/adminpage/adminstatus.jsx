@@ -10,7 +10,7 @@ const PaymentList = () => {
     const fetchPayments = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('https://e-comapi-production.up.railway.app/auth/getorder', {
+        const response = await axios.get('https://ecom-api2-df4u.onrender.com/auth/getorder', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setPayments(response.data);

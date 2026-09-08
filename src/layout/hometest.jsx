@@ -1,4 +1,4 @@
-import axios from 'axios';    
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import './CSS/UserHome.css'
 import Strer from "../potter/Proster"
@@ -11,7 +11,7 @@ export default function UserHome() {
     const fetchMenutems = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('https://e-comapi-production.up.railway.app/auth/getmenutems', {
+        const response = await axios.get('https://ecom-api2-df4u.onrender.com/auth/getmenutems', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setMenutems(response.data);
@@ -26,12 +26,12 @@ export default function UserHome() {
   return (
     <div className="user-home-container">
       <div>
-        <Strer/>
+        <Strer />
       </div>
       {menutems.map((item) => (
         <div key={item.id} className="product-item">
           <Link to={`/product/${item.id}`}> {/* สร้างลิงค์ไปยังหน้าสินค้าโดยใช้ ID */}
-            <img src={item.file} alt=""/>
+            <img src={item.file} alt="" />
             <hr />
             <h3 className="product-title">{item.ItemName}</h3>
             <p className="product-price">ราคา: {item.price}</p>
