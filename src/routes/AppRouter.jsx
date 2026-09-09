@@ -36,10 +36,7 @@ import Sidebar2 from '../layout/Officer/SidebarOfficer'
 const guestRouter = createBrowserRouter([
   {
     path: '/',
-    element: <>
-      <Header />
-      <Outlet />
-    </>,
+    element: <Outlet />,
     children: [
       { index: true, element: <LoginForm /> },
       { path: '/register', element: <RegisterForm /> },

@@ -90,21 +90,13 @@ export default function LoginForm() {
 
         {/* Product Showcase */}
         <section className="space-y-6 pt-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-2xl font-semibold tracking-tight text-[#1d1d1f]">
-                รายการสินค้าแนะนำ
-              </h2>
-              <p className="text-xs text-[#86868b] mt-0.5">
-                คลิกที่สินค้าเพื่อลงชื่อเข้าใช้และสั่งซื้อ
-              </p>
-            </div>
-            <button
-              onClick={() => setShowModal(true)}
-              className="text-xs font-medium text-[#0071e3] hover:underline"
-            >
-              เข้าสู่ระบบเพื่อสั่งซื้อ &rarr;
-            </button>
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight text-[#1d1d1f]">
+              รายการสินค้าแนะนำ
+            </h2>
+            <p className="text-xs text-[#86868b] mt-0.5">
+              คลิกที่สินค้าเพื่อลงชื่อเข้าใช้และสั่งซื้อ
+            </p>
           </div>
 
           {loading ? (
